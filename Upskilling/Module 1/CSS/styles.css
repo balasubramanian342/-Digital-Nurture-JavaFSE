@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:ital,wght@0,400;1,400&display=swap");
+
+/* Universal selector reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #e8f1f8;
+    background-image: url("images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #1f2a37;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+}
+
+main {
+    width: min(92%, 1180px);
+    margin: 0 auto;
+    padding: 28px 0 48px;
+}
+
+section {
+    margin: 24px 0;
+    padding: 32px;
+    border: 1px solid rgba(13, 71, 161, 0.12);
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Element selector for all h2 headings */
+h2 {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #0d47a1, #4fc3f7);
+    color: #ffffff;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+/* Grouping selector for h3 and paragraphs */
+h3,
+p {
+    color: #24364b;
+    line-height: 1.75;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+p {
+    font-family: "Merriweather", Georgia, serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.2px;
+}
+
+/* Header styles */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 16px 20px;
+    background-color: rgba(7, 19, 42, 0.88);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.22);
+}
+
+nav li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Link states */
+a:link {
+    color: #0d47a1;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #5e35b1;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:active {
+    color: #ff7043;
+}
+
+nav a {
+    display: inline-block;
+    min-width: 98px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #10233d;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #0d47a1;
+    transform: translateY(-1px);
+}
+
+/* ID selector for main header banner */
+#mainHeader {
+    margin-bottom: 24px;
+    padding: 34px 28px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.95), rgba(3, 155, 229, 0.82));
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 22px 44px rgba(13, 71, 161, 0.25);
+}
+
+#mainHeader h2 {
+    margin-bottom: 10px;
+    background: none;
+    padding: 0;
+    font-size: clamp(2rem, 3.6vw, 2.8rem);
+    letter-spacing: 0.8px;
+}
+
+#mainHeader p {
+    color: #eff7ff;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.highlight {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: rgba(255, 213, 79, 0.25);
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* News article multi-column text */
+.news-article {
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+}
+
+.news-article p {
+    margin-bottom: 16px;
+    break-inside: avoid;
+}
+
+/* Class selector for event card containers */
+.eventCard {
+    margin: 0;
+    padding: 18px;
+    border: 2px solid rgba(13, 71, 161, 0.14);
+    border-radius: 20px;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    vertical-align: top;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    margin-top: 18px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+caption {
+    margin-bottom: 16px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #17345c;
+}
+
+th,
+td {
+    padding: 16px;
+    border: 1px solid rgba(13, 71, 161, 0.12);
+    text-align: center;
+}
+
+tr:nth-child(even) td {
+    background-color: rgba(232, 241, 248, 0.78);
+}
+
+tr:nth-child(odd) td {
+    background-color: rgba(255, 255, 255, 0.82);
+}
+
+.eventCard p {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.event-img {
+    width: 100%;
+    max-width: 320px;
+    height: 210px;
+    border: 3px solid #10233d;
+    border-radius: 16px;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.2);
+}
+
+#eventPreview {
+    display: none;
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: 20px;
+    background-color: rgba(245, 249, 255, 0.92);
+    text-align: center;
+}
+
+#eventPreviewImg,
+video {
+    width: min(100%, 680px);
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+#eventPreviewImg {
+    display: block;
+    margin: 0 auto 14px;
+    border: 2px solid rgba(16, 35, 61, 0.2);
+}
+
+#eventPreviewNote,
+#geoSection {
+    margin-top: 18px;
+    text-align: center;
+}
+
+#eventPreviewNote {
+    color: #52637a;
+    font-size: 0.95rem;
+}
+
+#videoStatus,
+#nearestEvent,
+output {
+    color: #1b7f3a;
+    font-weight: 700;
+}
+
+#geoStatus {
+    margin-top: 10px;
+    color: #0d47a1;
+    font-weight: 700;
+}
+
+#coords {
+    margin: 4px 0;
+}
+
+/* Form styles */
+form {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+}
+
+form label {
+    font-weight: 600;
+}
+
+input,
+select,
+textarea,
+button {
+    font: inherit;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(16, 35, 61, 0.16);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.94);
+}
+
+/* Outline to highlight selected form fields */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ffb703;
+    outline: 3px solid rgba(255, 183, 3, 0.35);
+    outline-offset: 1px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+/* Button styles */
+button,
+.cta-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 999px;
+    background-color: #10233d;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+.cta-button:hover {
+    background-color: #0d47a1;
+    transform: translateY(-1px);
+}
+
+#findNearbyBtn {
+    background-color: #0d6efd;
+    box-shadow: 0 10px 24px rgba(13, 110, 253, 0.24);
+}
+
+.feedback-output {
+    display: block;
+    margin-top: 8px;
+}
+
+/* Visibility comparison examples */
+.visibility-hidden-example {
+    visibility: hidden;
+}
+
+.display-none-example {
+    display: none;
+}
+
+/* Informational card example */
+.info-card {
+    padding: 20px;
+    border: 1px solid rgba(16, 35, 61, 0.12);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer styles */
+footer {
+    padding: 18px;
+    background-color: rgba(7, 19, 42, 0.92);
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Responsive web design */
+@media screen and (max-width: 768px) {
+    main {
+        width: 94%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    section {
+        padding: 22px;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+    }
+
+    p {
+        font-size: 0.96rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .event-img {
+        max-width: 84%;
+        height: auto;
+    }
+
+    .news-article {
+        column-count: 1;
+    }
+
+    table,
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    caption {
+        font-size: 1.35rem;
+    }
+
+    td {
+        margin-bottom: 14px;
+    }
+}

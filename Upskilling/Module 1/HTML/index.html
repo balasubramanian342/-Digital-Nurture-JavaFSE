@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Portal</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="help.html" target="_blank">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <div id="mainHeader">
+            <h2>Welcome Back, User!</h2>
+            <p>
+                Don't miss our
+                <span style="color: red; font-weight: bold;">
+                    Special Offer!
+                </span>
+            </p>
+        </div>
+
+        <section id="home">
+            <h2 class="highlight" style="color: red;">Home</h2>
+            <div class="news-article">
+                <p>Welcome to the Local Community Portal.</p>
+                <p>Our community has vibrant cultural programs, learning workshops, sports activities, and social meetups that bring residents together throughout the year.</p>
+                <p>This portal helps you stay informed, register quickly, and explore events happening near you.</p>
+            </div>
+        </section>
+
+        <section id="events">
+            <h2>Events</h2>
+            <p class="highlight">Explore past community events:</p>
+
+            <table>
+                <caption>Community Event Gallery</caption>
+
+                <tr>
+                    <td class="eventCard">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=400&fit=crop"
+                            class="event-img" alt="Music Festival - live bands performing on stage" title="Music Festival"
+                            data-event="Music Festival" ondblclick="enlargeImage(this)">
+                        <p>Music Festival - live bands and local artists</p>
+                    </td>
+
+                    <td class="eventCard">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop"
+                            class="event-img" alt="Food Fair - delicious street food spread" title="Food Fair" data-event="Food Fair"
+                            ondblclick="enlargeImage(this)">
+                        <p>Food Fair - tastes from around the city</p>
+                    </td>
+
+                    <td class="eventCard">
+                        <img src="https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=600&h=400&fit=crop"
+                            class="event-img" alt="Art Exhibition - gallery with paintings on walls" title="Art Exhibition"
+                            data-event="Art Exhibition" ondblclick="enlargeImage(this)">
+                        <p>Art Exhibition - local creators showcase</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="eventCard">
+                        <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&h=400&fit=crop"
+                            class="event-img" alt="Sports Meet - athletes running on track" title="Sports Meet" data-event="Sports Meet"
+                            ondblclick="enlargeImage(this)">
+                        <p>Sports Meet - community teams compete</p>
+                    </td>
+
+                    <td class="eventCard">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                            class="event-img" alt="Workshop - people collaborating at a table" title="Workshop" data-event="Workshop"
+                            ondblclick="enlargeImage(this)">
+                        <p>Workshop - hands-on learning sessions</p>
+                    </td>
+
+                    <td class="eventCard">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop"
+                            class="event-img" alt="Community Meetup - group of friends socializing" title="Community Meetup"
+                            data-event="Community Meetup" ondblclick="enlargeImage(this)">
+                        <p>Community Meetup - network and connect</p>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="eventPreview">
+                <h3>Event Preview</h3>
+                <img id="eventPreviewImg" src="" alt="Event image">
+                <video id="promoVideo" controls width="640" preload="metadata" oncanplay="videoReady()">
+                    <source id="promoSource" src="vedios/Music festival.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p id="videoStatus"></p>
+            </div>
+
+            <div id="eventPreviewNote">
+                <em>Select an event from the registration form to preview its image and promo video.</em>
+            </div>
+
+            <div id="geoSection">
+                <h3>Find Nearby Events</h3>
+                <button type="button" id="findNearbyBtn">Find Events Near My Location</button>
+                <p id="geoStatus"></p>
+                <p id="coords"></p>
+                <p id="nearestEvent"></p>
+            </div>
+        </section>
+
+        <section id="register">
+            <h2 class="highlight">Event Registration</h2>
+
+            <form id="registrationForm" onsubmit="event.preventDefault();">
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" placeholder="Enter your name" required autofocus>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="phone">Phone Number</label>
+                    <input id="phone" type="text" placeholder="Enter phone number" onblur="validatePhone(this)" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="eventDate">Event Date</label>
+                    <input id="eventDate" type="date" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="eventTypeSelect">Event Type</label>
+                    <select id="eventTypeSelect" onchange="showFee(this)" required>
+                        <option value="">Select Event Type</option>
+                        <option>Music Festival</option>
+                        <option>Workshop</option>
+                        <option>Sports Meet</option>
+                        <option>Food Fair</option>
+                        <option>Art Exhibition</option>
+                        <option>Community Meetup</option>
+                    </select>
+                </div>
+
+                <p id="fee"></p>
+
+                <div class="form-actions">
+                    <button type="button" id="clearPrefsBtn">Clear Preferences</button>
+                </div>
+
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Enter your message" onkeyup="countChars(this, 'charCount')"></textarea>
+                </div>
+
+                <p id="charCount">0 characters</p>
+
+                <button type="button" onclick="confirmSubmit()">Register</button>
+
+                <output id="msg"></output>
+            </form>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <p>Please tell us about your experience or the event you attended.</p>
+            <form id="feedbackForm">
+                <input type="text" id="fbName" placeholder="Your name (optional)">
+                <label for="fbRating">Rating</label>
+                <select id="fbRating">
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Okay</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="1">1 - Bad</option>
+                </select>
+                <textarea id="fbMessage" placeholder="Your feedback" rows="4" onkeyup="countChars(this, 'feedbackCharCount')"></textarea>
+                <p id="feedbackCharCount">0 characters</p>
+                <button type="submit">Send Feedback</button>
+                <output id="fbAck" class="feedback-output"></output>
+            </form>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Reach out to Praveen for support and queries.</p>
+            <p>Name: Praveen</p>
+            <p>Email: praveenpcse4@gmail.com</p>
+            <p>Mobile No: 9852152457</p>
+            <p>Address: House No 10</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local City Council</p>
+    </footer>
+    <script src="../JS/main.js"></script>
+</body>
+
+</html>
